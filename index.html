@@ -95,6 +95,9 @@
         <ol>
             <li>Tried to login as user root, when the default admin user is postgres.</li>
             <li>Used MYSQL command to check existing databases, instead of PSQL command.</li>
+            <li>Didn't use quotes around VARCHAR input (IBM in this case).</li>
+            <li>Used integer datatype instead of bigint for larger number items in the table.</li>
+            <li>Used SHOW instead of SELECT to display table items.</li>
         </ol>
     </p>
 </body>

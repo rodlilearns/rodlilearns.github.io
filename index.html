@@ -1,113 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Create psql container</title>
+        <title>rodlilearns</title>
     </head>
-<body>
-    <h1>Create a psql container using Podman</h1>
-    <p>
-        <ol>
-            <li>
-                Login to a container registry. <br>
-                > $ podman login registry.redhat.io
-            </li>
-            <li>
-                Create a container using podman run. <br>
-                > $ podman run -d --name container_name -e POSTGRESQL_USER=username -e POSTGRESQL_PASSWORD=password -e POSTGRESQL_DATABASE=database_name -p 5432:5432 rhel8/postgresql-13
-            </li>
-            <img src="images/screenshots/psql_create/psql_1_create.png" alt="Create a containerised psql database">
-            <li>
-                Verify container exists
-                > $ podman ps
-            </li>
-            <img src="images/screenshots/psql_create/psql_2_verify_container.png" alt="Verify container exists">
-        </ol>
-    </p>
-    <h1>Create a database</h1>
-    <p>
-        <ol>
-            <li>
-                Login to the interactive shell. <br>
-                > $ podman exec -it container_name /bin/bash
-            </li>
-            <li>
-                Connect to psql database. <br>
-                > psql -d database_name -U username
-                Note: Login as postgres user which is the default admin user if you need privileges.
-            </li>
-            <li>
-                Check existing databases <br>
-                > \l
-            </li>
-            <figure>
-                <img src="images/screenshots/psql_create/psql_3_show_db.png" alt="Check existing databases" />
-                <figcaption>Logged in as a user that didn't have enough privileges to create databases.</figcaption>
-            </figure>
-            <figure>
-                <img src="images/screenshots/psql_create/psql_4_login_as_root.png" alt="Check existing databases 2" />
-                <figcaption>Logged in as postgres, the default admin user, so that I can create databases.</figcaption>
-            </figure>
-            <li>
-                Create a database. <br>
-                > CREATE DATABASE database_name;
-            </li>
-            <li>
-                Connect to the database. <br>
-                > \c database_name;
-            </li>
-            <img src="images/screenshots/psql_create/psql_5_create_stocks_database.png" alt="Create a database">
-            <li>
-                Create a table. <br>
-                > CREATE TABLE table_name (
-                    column_1 datatype other_attributes_etc,
-                    column_2 datatype other_attributes_etc,
-                    column_3 datatype other_attributes_etc
-                );
-            </li>
-            <img src="images/screenshots/psql_create/psql_6_create_table.png" alt="Create table">
-            <li>
-                Verify table exists. <br>
-                > SELECT * FROM database_name;
-            </li>
-            <img src="images/screenshots/psql_create/psql_7_verify_table.png" alt="Verify table">
-            <li>
-                Insert data into table. <br>
-                > INSERT INTO table_name(column_1, column_2, column_3)
-                VALUES (column_1_row_1_value, column_2_row_1_value, column_3_row_1_value);
-            </li>
-            <li>
-                Alter table items to fix datatypes if incorrect datatypes were set previously. <br>
-                > ALTER TABLE table_name
-                ALTER COLUMN column_1 TYPE new_data_type;
-            </li>
-            <img src="images/screenshots/psql_create/psql_8_attempt_to_insert_items.png" alt="Insert items into table attempt"> <br>
-            <img src="images/screenshots/psql_create/psql_9_attempt_to_insert_items_2.png" alt="Insert items into table attempt 2"> <br>
-            <img src="images/screenshots/psql_create/psql_10_attempt_to_insert_items_3.png" alt="Insert items into table attemp 3"> <br>
-            <li>
-                Verify items have been inserted into table.
-                > SELECT * FROM table_name;
-            </li>
-            <img src="images/screenshots/psql_create/psql_11_verify_items_in_database.png" alt="Verify items have been inserted into table">
+    <body>
+        <h1>A learning journal with problems, solutions, bloopers, and next steps.</h1>
+        <p>
+            <a href="1_create_a_psql_container_using_podman.html">Create a psql database container with podman</a>
+            <a href="2_create_a_container_with_persistent_storage.html.html">Create a container with persistent storage</a>
 
-        </ol>
-    </p>
-    <h1>Bloopers</h1>
-    <p>
-        <ol>
-            <li>Tried to login as user root, when the default admin user is postgres.</li>
-            <li>Used MYSQL command to check existing databases, instead of PSQL command.</li>
-            <li>Didn't use quotes around VARCHAR input (IBM in this case).</li>
-            <li>Used integer datatype instead of bigint for larger number items in the table.</li>
-            <li>Used SHOW instead of SELECT to display table items.</li>
-        </ol>
-    </p>
-    <h1>What's Next?</h1>
-    <p>
-        After creating the containerised psql database, I left it running, put my computer on standby and went to do some home renovations. <br>
-        After coming back to my computer, I couldn't access the container again. <br>
-        I checked the running containers with podman ps, but got the following. <br>
-        <image src="images/screenshots/psql_create/psql_12_next.png" alt="What's next?"> <br>
-        I was excited to add more items to my table, but now I have to figure out why I can't access my container anymore, and if there's any way I can get my data back.
-    </p>
-</body>
+        </p>
+    </body>
+
 </html>

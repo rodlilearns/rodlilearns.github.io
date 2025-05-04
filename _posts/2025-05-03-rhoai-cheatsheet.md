@@ -12,15 +12,15 @@ categories: RHOAI
 
 #### Users
 
-Add users called banana1 and banana2 into a group called data-scientists.
-`$ oc adm groups add-users data-scientists banana1 banana2`
+Add users called banana1 and banana2 into a group called data-scientists.  
+`$ oc adm groups add-users data-scientists banana1 banana2`  
 
-Get the odh dashboard configs in YAML.
-`$ oc get odhdashboardconfigs odh-dashboard-config -n redhat-ods-applications -o yaml`
-OdhDashboardConfig == Custom Resource Definition (CRD) 
-groupsConfig controls which groups have which perms. 
+Get the odh dashboard configs in YAML.  
+`$ oc get odhdashboardconfigs odh-dashboard-config -n redhat-ods-applications -o yaml`  
+OdhDashboardConfig == Custom Resource Definition (CRD)   
+groupsConfig controls which groups have which perms.  
 
-Create a project.
+Create a project.  
 `oc create namespace ds-analyse-banana-prices`
 or, Create a YAML file called ds-analyse-banana-prices.yaml
 ```yaml
@@ -71,27 +71,29 @@ FROM specifies the base image.
 COPY copies a file into the container image.
 RUN executes the provided commands.
 
-Create a container image with a Containerfile in the current directory. Give it a tag "domain.com/repo/best-image:2.0".
-`$ podman build . -t domain.com/repo/best-image:2.0`
+Create a container image with a Containerfile in the current directory. Give it a tag "domain.com/repo/best-image:2.0".  
+`$ podman build . -t domain.com/repo/best-image:2.0`  
 
-Push a container image to a container registry for use outside of the local machine.
-`$ podman push domain.com/repo/best-image:2.0`
+Push a container image to a container registry for use outside of the local machine.  
+`$ podman push domain.com/repo/best-image:2.0`  
 
 Import custom workbench image into RHOAI
 
-``` plantuml!
+@startuml
 As Admin -> Go to Settings -> Notebook Images -> Import a new image
-```
+@enduml
+
 Name: Custom Workbench for the Best Data Scientists
 Image location: domain.com/repo/best-image:2.0
 Description: Images provides the Pandas DataFrames pkg.
 Packages:
   Add packages: Pandas
-``` plantuml!
+@startuml
 As Admin -> Click Import -> As Developer -> Navigate to Data Science Projects -> Select a project -> Navigate to Workbenches -> Create Workbench
-```
+@enduml
+
 Name: Custom workbench for Data Science
 Image Selection: Custom Workbench for the Best Data Scientists
-``` plantuml!
+@startuml
 Create Workbench
-```
+@enduml

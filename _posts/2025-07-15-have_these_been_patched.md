@@ -5,7 +5,8 @@ categories: [it_infrastructure, patching]
 tags: [patching]
 ---
 
-Problem:
+* When the Alarms Are Silent: The Day Patch Management Became Priority One
+
 The infrastructure was running smoothly. Servers were online, applications were accessible, and the support tickets were few and far between. On the surface, everything looked stable.
 
 Eight months into the deployment phase of a new I.T. environment, a routine meeting shifted the narrative. The team lead raised a critical oversight: not a single server in a core environment had been patched since deployment.
@@ -21,6 +22,8 @@ A patching strategy was drafted on the spot. Scope had to be defined. Maintenanc
 This incident wasn’t just a wake-up call—it was a turning point in how infrastructure was managed, secured, and maintained.
 
 This blog explores the challenges like this that often go unseen until it’s almost too late. Real-world problems. Real-time solutions. A delicate balance between code, policy, and the occasional sprint to the finish line.
+
+** Patch Methodology
 
 🔧 1. Define the Patch Management Scope
 Inventory: Maintain a current inventory of all servers (version, hostname, environment: dev/test/staging/prod).

@@ -49,7 +49,7 @@ Ansible: Ideal for push-based patching workflows.
 Foreman: Centralized management for larger fleets.
 Cron + Bash/Ansible scripts: For smaller environments.
 Example Ansible patching task:
-```
+```yaml
 - name: Apply security updates
   hosts: all
   become: yes

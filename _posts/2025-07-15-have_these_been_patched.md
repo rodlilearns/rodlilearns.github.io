@@ -1,5 +1,5 @@
 ---
-title: When the Alarms Are Silent: The Day Patch Management Became Priority One
+title: "When the Alarms Are Silent: The Day Patch Management Became Priority One"
 date: 2025-07-15 19:33:00 +1000
 categories: [it_infrastructure, patching]
 tags: [patching]
@@ -55,9 +55,9 @@ Example Ansible patching task:
   become: yes
   tasks:
     - name: Install security updates
-      yum:
+      ansible.builtin.dnf:
         name: '*'
-        security: yes
+        security: true
         state: latest
 ```
 
